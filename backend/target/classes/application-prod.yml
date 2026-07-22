@@ -1,0 +1,18 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    hikari:
+      maximum-pool-size: 30
+      minimum-idle: 10
+      leak-detection-threshold: 60000
+  jpa:
+    show-sql: false
+
+logging:
+  level:
+    root: INFO
+    com.careeros: INFO
+    org.springframework.security: WARN
+    org.hibernate: ERROR
