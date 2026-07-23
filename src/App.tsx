@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { Navbar } from './components/layout/Navbar';
 import { Sidebar } from './components/layout/Sidebar';
+import { LandingPage } from './pages/LandingPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { ResumeAnalyzerPage } from './pages/ResumeAnalyzerPage';
 import { AiRewriterPage } from './pages/AiRewriterPage';
@@ -11,7 +12,7 @@ import { AdminPage } from './pages/AdminPage';
 import { CareerRoadmapPage } from './pages/CareerRoadmapPage';
 
 const MainContent: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>('dashboard');
+  const [activeTab, setActiveTab] = useState<string>('landing');
   const { isLoading } = useAuth();
 
   if (isLoading) {
@@ -34,6 +35,12 @@ const MainContent: React.FC = () => {
         <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
 
         <main className="flex-1 p-6 md:p-8 overflow-y-auto">
+          {activeTab === 'landing' && (
+            <LandingPage
+              onGetStarted={() => setActiveTab('analyzer')}
+              onExploreFeature={(tab) => setActiveTab(tab)}
+            />
+          )}
           {activeTab === 'dashboard' && <DashboardPage onNavigate={setActiveTab} />}
           {activeTab === 'roadmap' && <CareerRoadmapPage />}
           {activeTab === 'analyzer' && <ResumeAnalyzerPage onNavigate={setActiveTab} />}

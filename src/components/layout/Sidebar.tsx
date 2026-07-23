@@ -8,7 +8,8 @@ import {
   ShieldCheck,
   TrendingUp,
   Award,
-  Compass
+  Compass,
+  Home
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
@@ -22,6 +23,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab }) => 
   const isAdmin = user?.role === 'ROLE_ADMIN';
 
   const navItems = [
+    { id: 'landing', label: 'Landing Home', icon: Home },
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
     { id: 'roadmap', label: 'Career Roadmap & Skill Gap', icon: Compass },
     { id: 'analyzer', label: 'ATS Resume Analyzer', icon: FileCheck2 },

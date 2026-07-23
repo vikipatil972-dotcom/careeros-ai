@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { Sparkles, Crown, LogOut, User as UserIcon, LogIn, UserPlus, ShieldAlert } from 'lucide-react';
+import { Sparkles, Crown, LogOut, User as UserIcon, LogIn, UserPlus, ShieldAlert, Home } from 'lucide-react';
 import { LoginModal } from '../auth/LoginModal';
 import { RegisterModal } from '../auth/RegisterModal';
 import { EmailVerificationModal } from '../auth/EmailVerificationModal';
@@ -10,6 +10,8 @@ interface NavbarProps {
   onOpenBilling: () => void;
   activeTab: string;
   setActiveTab: (tab: string) => void;
+  onOpenLoginModal?: () => void;
+  onOpenRegisterModal?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenBilling, activeTab, setActiveTab }) => {
@@ -28,7 +30,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBilling, activeTab, setAct
     <>
       <header className="h-16 border-b border-surface-border bg-[#090d16]/80 backdrop-blur-md sticky top-0 z-40 px-6 flex items-center justify-between">
         {/* Brand Logo */}
-        <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setActiveTab('dashboard')}>
+        <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setActiveTab('landing')}>
           <div className="w-10 h-10 rounded-xl gradient-button flex items-center justify-center text-white shadow-lg">
             <Sparkles className="w-5 h-5 animate-pulse" />
           </div>
@@ -44,6 +46,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBilling, activeTab, setAct
 
         {/* Navigation Shortcuts */}
         <nav className="hidden md:flex items-center space-x-1">
+          <button
+            onClick={() => setActiveTab('landing')}
+            className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all flex items-center gap-1.5 ${
+              activeTab === 'landing'
+                ? 'bg-brand-500/10 text-brand-500 border border-brand-500/20'
+                : 'text-gray-400 hover:text-gray-200 hover:bg-surface-elevated'
+            }`}
+          >
+            <Home className="w-3.5 h-3.5" /> Home
+          </button>
           <button
             onClick={() => setActiveTab('dashboard')}
             className={`px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all ${
