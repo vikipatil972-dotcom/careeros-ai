@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { Sparkles, Crown, LogOut, User as UserIcon, LogIn, UserPlus, ShieldAlert, Home } from 'lucide-react';
+import { Sparkles, Crown, LogOut, User as UserIcon, LogIn, UserPlus, ShieldAlert, Home, Briefcase } from 'lucide-react';
 import { LoginModal } from '../auth/LoginModal';
 import { RegisterModal } from '../auth/RegisterModal';
 import { EmailVerificationModal } from '../auth/EmailVerificationModal';
@@ -65,6 +65,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBilling, activeTab, setAct
             }`}
           >
             Dashboard
+          </button>
+          <button
+            onClick={() => setActiveTab('tracker')}
+            className={`px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all flex items-center gap-1 ${
+              activeTab === 'tracker'
+                ? 'bg-brand-500/10 text-brand-500 border border-brand-500/20'
+                : 'text-gray-400 hover:text-gray-200 hover:bg-surface-elevated'
+            }`}
+          >
+            <Briefcase className="w-3.5 h-3.5 text-brand-400" /> Application Tracker
           </button>
           <button
             onClick={() => setActiveTab('analyzer')}
@@ -166,6 +176,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBilling, activeTab, setAct
                     <div className="text-xs font-bold text-white">{user.firstName} {user.lastName}</div>
                     <div className="text-[10px] text-gray-400">{user.email}</div>
                   </div>
+                  <button
+                    onClick={() => {
+                      setActiveTab('profile');
+                      setShowUserDropdown(false);
+                    }}
+                    className="w-full text-left px-3 py-2 rounded-xl text-xs font-medium text-brand-400 hover:bg-brand-500/10 flex items-center gap-2 transition-all"
+                  >
+                    <UserIcon className="w-3.5 h-3.5" /> My Profile & Notifications
+                  </button>
                   <button
                     onClick={() => {
                       logoutFromAllDevices();

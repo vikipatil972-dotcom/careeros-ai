@@ -9,7 +9,9 @@ import {
   TrendingUp,
   Award,
   Compass,
-  Home
+  Home,
+  Briefcase,
+  User
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
@@ -25,11 +27,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab }) => 
   const navItems = [
     { id: 'landing', label: 'Landing Home', icon: Home },
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
+    { id: 'tracker', label: 'Job & Offer Tracker', icon: Briefcase },
     { id: 'roadmap', label: 'Career Roadmap & Skill Gap', icon: Compass },
     { id: 'analyzer', label: 'ATS Resume Analyzer', icon: FileCheck2 },
     { id: 'rewriter', label: 'AI Bullet Rewriter', icon: Sparkles },
     { id: 'tools', label: 'Cover Letter & Interview', icon: FileText },
     { id: 'billing', label: 'Billing & Subscriptions', icon: CreditCard },
+    { id: 'profile', label: 'Profile & Settings', icon: User },
   ];
 
   if (isAdmin) {

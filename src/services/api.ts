@@ -29,21 +29,54 @@ import {
   AdminUserData,
   SystemHealthData,
   AuditLogEntryData,
+  JobApplicationData,
+  UserProfileData,
+  UserNotificationData,
   RewriteStyle
 } from '../types';
 
 // Mock DB Initial State
 let mockUser: User = {
   id: 'usr_1001',
-  email: 'rahul.sharma@example.com',
-  firstName: 'Rahul',
-  lastName: 'Sharma',
+  email: 'vikipatil972@gmail.com',
+  firstName: 'Vivek',
+  lastName: 'Patil',
   role: 'ROLE_USER',
   isEmailVerified: true,
   freeAnalysesUsed: 1,
   maxFreeAnalyses: 3,
   createdAt: new Date().toISOString()
 };
+
+let mockProfile: UserProfileData = {
+  id: 'prof_1001',
+  userId: 'usr_1001',
+  firstName: 'Vivek',
+  lastName: 'Patil',
+  email: 'vikipatil972@gmail.com',
+  headline: 'Senior Full Stack & AI Systems Engineer',
+  bio: 'Passionate engineer building resilient enterprise SaaS platforms in Spring Boot 3.3, React 18, PostgreSQL 16, and LLM AI models.',
+  linkedinUrl: 'https://www.linkedin.com/in/vivek-patil-393501326',
+  githubUrl: 'https://github.com/vikipatil972-dotcom',
+  portfolioUrl: 'https://careeros-ai.vercel.app',
+  phone: '+91 98765 43210',
+  location: 'Bengaluru, India',
+  targetSalaryInr: 3500000,
+  preferredRoles: ['Senior Full Stack Engineer', 'DevOps Architect', 'Backend Lead']
+};
+
+let mockJobApps: JobApplicationData[] = [
+  { id: 'job_101', userId: 'usr_1001', companyName: 'Google', jobTitle: 'Senior Full Stack Engineer', status: 'INTERVIEWING', salaryOfferedInr: 3800000, location: 'Bengaluru, IN', jobUrl: 'https://careers.google.com', notes: 'Passed Tech Round 1 with Lead Architect', appliedDate: new Date(Date.now() - 864000000).toISOString(), createdAt: new Date().toISOString() },
+  { id: 'job_102', userId: 'usr_1001', companyName: 'Stripe', jobTitle: 'Backend Systems Engineer', status: 'OFFER', salaryOfferedInr: 4500000, location: 'Remote', jobUrl: 'https://stripe.com/jobs', notes: 'Offer Received - Salary Negotiating', appliedDate: new Date(Date.now() - 1728000000).toISOString(), createdAt: new Date().toISOString() },
+  { id: 'job_103', userId: 'usr_1001', companyName: 'Amazon', jobTitle: 'Software Development Engineer II', status: 'APPLIED', salaryOfferedInr: 3200000, location: 'Hyderabad, IN', jobUrl: 'https://amazon.jobs', notes: 'Applied via employee referral', appliedDate: new Date(Date.now() - 432000000).toISOString(), createdAt: new Date().toISOString() },
+  { id: 'job_104', userId: 'usr_1001', companyName: 'Microsoft', jobTitle: 'Senior Cloud Engineer', status: 'WISHLIST', salaryOfferedInr: 3600000, location: 'Bengaluru, IN', jobUrl: 'https://careers.microsoft.com', notes: 'Preparing customized resume', appliedDate: new Date(Date.now() - 172800000).toISOString(), createdAt: new Date().toISOString() }
+];
+
+let mockNotifications: UserNotificationData[] = [
+  { id: 'notif_1', userId: 'usr_1001', title: 'ATS Report Generated', message: 'Your resume score for Google Senior Engineer job description reached 92/100.', category: 'ATS_ALERT', isRead: false, createdAt: new Date(Date.now() - 3600000).toISOString() },
+  { id: 'notif_2', userId: 'usr_1001', title: 'Mock Interview Scheduled', message: 'STAR Mock Interview for System Design is ready.', category: 'INTERVIEW_REMINDER', isRead: false, createdAt: new Date(Date.now() - 86400000).toISOString() },
+  { id: 'notif_3', userId: 'usr_1001', title: 'Premium Pass Active', message: 'Your ₹49/month subscription is active until August 22, 2026.', category: 'BILLING', isRead: true, createdAt: new Date(Date.now() - 172800000).toISOString() }
+];
 
 let mockSubscriptionPlans: SubscriptionPlan[] = [
   {
@@ -114,8 +147,8 @@ export const apiService = {
     } else {
       mockUser.role = 'ROLE_USER';
       mockUser.email = email;
-      mockUser.firstName = 'Rahul';
-      mockUser.lastName = 'Sharma';
+      mockUser.firstName = 'Vivek';
+      mockUser.lastName = 'Patil';
     }
     return { ...mockUser };
   },
@@ -130,8 +163,8 @@ export const apiService = {
     mockUser = {
       id: `usr_${Date.now()}`,
       email,
-      firstName: parts[0] || 'New',
-      lastName: parts.slice(1).join(' ') || 'User',
+      firstName: parts[0] || 'Vivek',
+      lastName: parts.slice(1).join(' ') || 'Patil',
       role: 'ROLE_USER',
       isEmailVerified: false,
       freeAnalysesUsed: 0,
@@ -186,11 +219,11 @@ export const apiService = {
         contactInfo: {
           name: mockUser.firstName + ' ' + mockUser.lastName,
           email: mockUser.email,
-          phone: '+1 (555) 019-2834',
-          location: 'San Francisco, CA',
-          linkedin: 'https://linkedin.com/in/rahulsharma',
-          github: 'https://github.com/rahulsharma',
-          portfolio: 'https://rahulsharma.dev'
+          phone: '+91 98765 43210',
+          location: 'Bengaluru, India',
+          linkedin: 'https://www.linkedin.com/in/vivek-patil-393501326',
+          github: 'https://github.com/vikipatil972-dotcom',
+          portfolio: 'https://careeros-ai.vercel.app'
         },
         summary: 'Results-driven Senior Full Stack Software Engineer with 4+ years experience designing high-concurrency cloud architectures in Java Spring Boot, React, and PostgreSQL.',
         workExperience: [
@@ -208,10 +241,10 @@ export const apiService = {
         education: [
           {
             institution: 'University of Technology',
-            degree: 'Bachelor of Science',
+            degree: 'Bachelor of Technology',
             field: 'Computer Science',
             graduationYear: '2020',
-            grade: '3.8 GPA'
+            grade: '8.8 CGPA'
           }
         ],
         skills: {
@@ -224,14 +257,14 @@ export const apiService = {
             name: 'CareerOS AI SaaS Platform',
             description: 'AI-powered SaaS career development platform featuring 100-point ATS diagnostics.',
             technologiesUsed: ['React', 'TypeScript', 'Spring Boot', 'PostgreSQL'],
-            liveUrl: 'https://careeros.ai'
+            liveUrl: 'https://careeros-ai.vercel.app'
           }
         ],
         certifications: ['AWS Certified Solutions Architect'],
         languages: ['English (Native)', 'Hindi (Fluent)'],
         links: {
-          LinkedIn: 'https://linkedin.com/in/rahulsharma',
-          GitHub: 'https://github.com/rahulsharma'
+          LinkedIn: 'https://www.linkedin.com/in/vivek-patil-393501326',
+          GitHub: 'https://github.com/vikipatil972-dotcom'
         }
       },
       createdAt: new Date().toISOString()
@@ -429,7 +462,7 @@ export const apiService = {
     const valueProp = `In my recent role, I architected distributed systems handling over 120K daily active transactions while reducing API latency by 38%. My approach combines rigorous software engineering standards with empirical benchmarking to deliver resilient product features.`;
     const skills = `My technical background aligns directly with ${payload.companyName}'s requirements, including Java 21, Spring Boot 3.3, React 18, TypeScript, PostgreSQL 16, and Docker containerization. I thrive in collaborative Agile teams where clean architecture and rapid iteration are prioritized.`;
     const closing = `I would welcome the opportunity to discuss how my technical expertise and background can add immediate value to the ${payload.jobTitle} team at ${payload.companyName}. Thank you for your time and consideration.`;
-    const signature = `Sincerely,\nRahul Sharma\nSenior Full Stack Engineer`;
+    const signature = `Sincerely,\nVivek Patil\nSenior Full Stack Engineer`;
 
     const fullContent = `${greeting}\n\n${opening}\n\n${valueProp}\n\n${skills}\n\n${closing}\n\n${signature}`;
 
@@ -628,6 +661,80 @@ export const apiService = {
     ];
   },
 
+  // APPLICATION TRACKER API
+  async getJobApplications(): Promise<JobApplicationData[]> {
+    await delay(300);
+    return [...mockJobApps];
+  },
+
+  async createJobApplication(payload: Partial<JobApplicationData>): Promise<JobApplicationData> {
+    await delay(400);
+    const newApp: JobApplicationData = {
+      id: `job_${Date.now()}`,
+      userId: 'usr_1001',
+      companyName: payload.companyName || 'TechCorp',
+      jobTitle: payload.jobTitle || 'Software Developer',
+      status: payload.status || 'APPLIED',
+      salaryOfferedInr: payload.salaryOfferedInr || 3500000,
+      location: payload.location || 'Remote',
+      jobUrl: payload.jobUrl || '',
+      notes: payload.notes || '',
+      appliedDate: new Date().toISOString(),
+      createdAt: new Date().toISOString()
+    };
+    mockJobApps.unshift(newApp);
+    return newApp;
+  },
+
+  async updateJobApplicationStatus(id: string, status: string): Promise<JobApplicationData> {
+    await delay(300);
+    mockJobApps = mockJobApps.map(a => a.id === id ? { ...a, status } : a);
+    return mockJobApps.find(a => a.id === id) || mockJobApps[0];
+  },
+
+  async deleteJobApplication(id: string): Promise<boolean> {
+    await delay(300);
+    mockJobApps = mockJobApps.filter(a => a.id !== id);
+    return true;
+  },
+
+  async getJobTrackerStats(): Promise<{ total: number; applied: number; interviewing: number; offers: number; wishlist: number }> {
+    await delay(200);
+    return {
+      total: mockJobApps.length,
+      applied: mockJobApps.filter(a => a.status === 'APPLIED').length,
+      interviewing: mockJobApps.filter(a => a.status === 'INTERVIEWING').length,
+      offers: mockJobApps.filter(a => a.status === 'OFFER').length,
+      wishlist: mockJobApps.filter(a => a.status === 'WISHLIST').length
+    };
+  },
+
+  // PROFILE & NOTIFICATION API
+  async getUserProfile(): Promise<UserProfileData> {
+    await delay(300);
+    return { ...mockProfile };
+  },
+
+  async updateUserProfile(payload: Partial<UserProfileData>): Promise<UserProfileData> {
+    await delay(400);
+    mockProfile = {
+      ...mockProfile,
+      ...payload
+    };
+    return { ...mockProfile };
+  },
+
+  async getUserNotifications(): Promise<UserNotificationData[]> {
+    await delay(300);
+    return [...mockNotifications];
+  },
+
+  async markNotificationRead(id: string): Promise<boolean> {
+    await delay(200);
+    mockNotifications = mockNotifications.map(n => n.id === id ? { ...n, isRead: true } : n);
+    return true;
+  },
+
   // SPRINT 9: ADMIN INTELLIGENCE METHODS
   async getAdminDashboardMetrics(): Promise<AdminDashboardMetricsData> {
     await delay(400);
@@ -649,7 +756,7 @@ export const apiService = {
   async getAdminUsersList(): Promise<AdminUserData[]> {
     await delay(400);
     return [
-      { id: 'usr_1001', email: 'rahul.sharma@example.com', firstName: 'Rahul', lastName: 'Sharma', role: 'ROLE_USER', isBlocked: false, planCode: 'PLAN_FREE', createdAt: new Date(Date.now() - 172800000).toISOString() },
+      { id: 'usr_1001', email: 'vikipatil972@gmail.com', firstName: 'Vivek', lastName: 'Patil', role: 'ROLE_USER', isBlocked: false, planCode: 'PLAN_FREE', createdAt: new Date(Date.now() - 172800000).toISOString() },
       { id: 'usr_1002', email: 'priya.verma@example.com', firstName: 'Priya', lastName: 'Verma', role: 'ROLE_PREMIUM_USER', isBlocked: false, planCode: 'PLAN_PREMIUM_MONTHLY', createdAt: new Date(Date.now() - 864000000).toISOString() },
       { id: 'usr_1003', email: 'amit.kumar@example.com', firstName: 'Amit', lastName: 'Kumar', role: 'ROLE_USER', isBlocked: true, planCode: 'PLAN_FREE', createdAt: new Date(Date.now() - 2592000000).toISOString() },
       { id: 'usr_admin', email: 'admin@careeros.ai', firstName: 'System', lastName: 'Admin', role: 'ROLE_ADMIN', isBlocked: false, planCode: 'PLAN_CAREER_PRO', createdAt: new Date(Date.now() - 5184000000).toISOString() }

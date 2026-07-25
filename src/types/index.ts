@@ -12,6 +12,47 @@ export interface User {
   createdAt: string;
 }
 
+export interface JobApplicationData {
+  id: string;
+  userId: string;
+  companyName: string;
+  jobTitle: string;
+  status: 'WISHLIST' | 'APPLIED' | 'INTERVIEWING' | 'OFFER' | 'REJECTED' | string;
+  salaryOfferedInr: number;
+  location: string;
+  jobUrl?: string;
+  notes?: string;
+  appliedDate: string;
+  createdAt: string;
+}
+
+export interface UserProfileData {
+  id: string;
+  userId: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  headline: string;
+  bio: string;
+  linkedinUrl: string;
+  githubUrl: string;
+  portfolioUrl: string;
+  phone: string;
+  location: string;
+  targetSalaryInr: number;
+  preferredRoles: string[];
+}
+
+export interface UserNotificationData {
+  id: string;
+  userId: string;
+  title: string;
+  message: string;
+  category: 'SYSTEM' | 'ATS_ALERT' | 'INTERVIEW_REMINDER' | 'BILLING' | string;
+  isRead: boolean;
+  createdAt: string;
+}
+
 export interface ResumeVersion {
   id: string;
   resumeId: string;

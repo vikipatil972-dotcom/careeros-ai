@@ -8,7 +8,9 @@ C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\co
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\controller\CareerController.java
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\controller\CoverLetterController.java
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\controller\InterviewController.java
+C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\controller\JobTrackerController.java
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\controller\PaymentController.java
+C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\controller\ProfileController.java
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\controller\ResumeController.java
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\domain\dto\AdminDashboardMetricsResponse.java
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\domain\dto\AdminUserItem.java
@@ -28,6 +30,7 @@ C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\co
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\domain\dto\ForgotPasswordRequest.java
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\domain\dto\InterviewReportResponse.java
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\domain\dto\InterviewSessionResponse.java
+C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\domain\dto\JobApplicationDTO.java
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\domain\dto\LearningResourceItem.java
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\domain\dto\LoginRequest.java
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\domain\dto\ReferralCodeResponse.java
@@ -41,6 +44,8 @@ C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\co
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\domain\dto\StructuredResumeData.java
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\domain\dto\SubmitAnswerRequest.java
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\domain\dto\SystemHealthResponse.java
+C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\domain\dto\UserNotificationDTO.java
+C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\domain\dto\UserProfileDTO.java
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\domain\dto\VerifyEmailRequest.java
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\exception\GlobalExceptionHandler.java
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\security\AccessDeniedHandlerImpl.java
@@ -76,6 +81,8 @@ C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\co
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\service\interview\InterviewQuestionEngine.java
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\service\interview\InterviewService.java
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\service\payment\PaymentGatewayAdapter.java
+C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\service\profile\ProfileService.java
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\service\resume\ResumeParsingService.java
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\service\resume\ResumeService.java
 C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\service\storage\FileValidationService.java
+C:\Users\Lenovo\.gemini\antigravity\scratch\careeros-ai\backend\src\main\java\com\careeros\service\tracker\JobTrackerService.java
