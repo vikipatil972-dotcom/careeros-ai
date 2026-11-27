@@ -1,4 +1,7 @@
 # CareerOS AI — Enterprise AI SaaS Career Development Platform
+<br>
+Production level
+
 
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.3.0-brightgreen.svg)](https://spring.io/projects/spring-boot)
 [![Java 21](https://img.shields.io/badge/Java-21-blue.svg)](https://www.oracle.com/java/)
